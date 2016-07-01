@@ -35,6 +35,11 @@ case "$PLATFORM" in
         echo "[Error] This script requires Mac OS X 10.5 or later on a 64-bit Intel CPU."
         exit 1
     fi
+
+    # Export openssl path on ElCapitan
+    if [[ $MAJOR -ge 10 && $MINOR -ge 11 ]] ; then
+        export OPENSSL_DIR=/usr/local/opt/openssl
+    fi
     ;;
   Linux-x86_64)
     # Linux looks OK
